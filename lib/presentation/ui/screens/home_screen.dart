@@ -52,58 +52,58 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 10,
                     itemBuilder: (context,index){
-                      // return  Column(
-                      //   children: [
-                      //     Container(
-                      //       margin: const EdgeInsets.only(left:7,right: 7),
-                      //       decoration: BoxDecoration(
-                      //           shape: BoxShape.circle,
-                      //           border: Border.all(
-                      //             color: Colors.amber,
-                      //             width: 3,
-                      //           ),
-                      //       ),
-                      //       child:  CircleAvatar(
-                      //         radius: 28,
-                      //         backgroundImage: NetworkImage(AssetsPath.profileLogo),
-                      //       ),
-                      //     ),
-                      //     const SizedBox(height: 5,),
-                      //     const Text("Monir",style: TextStyle(
-                      //       fontWeight: FontWeight.w400,
-                      //       fontSize: 14,
-                      //       color: Colors.white,
-                      //     ),)
-                      //   ],
-                      // );
-                      return Column(
+                      return  Column(
                         children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 3),
-                        width: 80,
-                        height: 80,
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.centerRight,
-                                colors: [
-                                  Colors.amber,
-                                  Colors.purple,
-                                ])),
-                        child: Container(
-                          height: 70,
-                          decoration: BoxDecoration(
-                            color: Colors.orangeAccent,
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: NetworkImage(AssetsPath.profileLogo)
+                          Container(
+                            margin: const EdgeInsets.only(left:7,right: 7),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.amber,
+                                  width: 3,
+                                ),
+                            ),
+                            child:  CircleAvatar(
+                              radius: 28,
+                              backgroundImage: NetworkImage(AssetsPath.profileLogo),
                             ),
                           ),
-                        ),
-                      ),]
+                          const SizedBox(height: 5,),
+                          const Text("Monir",style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),)
+                        ],
                       );
+                      // return Column(
+                      //   children: [
+                      //   Container(
+                      //     margin: const EdgeInsets.only(right: 3),
+                      //   width: 80,
+                      //   height: 80,
+                      //   alignment: Alignment.center,
+                      //   decoration: const BoxDecoration(
+                      //     shape: BoxShape.circle,
+                      //       gradient: LinearGradient(
+                      //           begin: Alignment.topRight,
+                      //           end: Alignment.centerRight,
+                      //           colors: [
+                      //             Colors.amber,
+                      //             Colors.purple,
+                      //           ])),
+                      //   child: Container(
+                      //     height: 70,
+                      //     decoration: BoxDecoration(
+                      //       color: Colors.orangeAccent,
+                      //       shape: BoxShape.circle,
+                      //       image: DecorationImage(
+                      //           image: NetworkImage(AssetsPath.profileLogo)
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),]
+                      // );
                     },
                 ))
                ],
