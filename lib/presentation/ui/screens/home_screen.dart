@@ -11,41 +11,35 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.black,
-                            border: Border.all(
-                              color: const Color(0xFF363F3B),
-                            )),
-                        child: const Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ),
-                      const Spacer(),
-                      const Text(
-                        "Home",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      const Spacer(),
+     body:SafeArea(
+       child: Column(
+         children: [
+           Padding(
+             padding: const EdgeInsets.all(12.0),
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.start,
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 Row(
+                   children: [
+                     Container(
+                       padding: const EdgeInsets.all(12),
+                       decoration:  BoxDecoration(
+                         shape: BoxShape.circle,
+                         color: Colors.black,
+                         border: Border.all(
+                           color: const Color(0xFF363F3B),
+                         )
+                       ),
+                       child: const Icon(Icons.search,color: Colors.white,size: 30,),
+                     ),
+                     const Spacer(),
+                     const Text("Home",style: TextStyle(
+                       color: Colors.white,
+                       fontSize: 20,
+                       fontWeight: FontWeight.w500,
+                     ),),
+                     const Spacer(),
                       CircleAvatar(
                         backgroundImage: NetworkImage(
                           AssetsPath.profileLogo,
@@ -284,3 +278,5 @@ class HomeScreen extends StatelessWidget {
   //   );
   // }
 }
+
+
