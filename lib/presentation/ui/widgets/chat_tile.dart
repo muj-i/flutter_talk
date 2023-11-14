@@ -63,8 +63,8 @@ class ChatTile extends StatelessWidget {
           ),
         ),
         const Positioned(
-          left: 64,
-          bottom: 10,
+          left: 58,
+          bottom: 9,
           child: CircleAvatar(
             radius: 5,
             backgroundColor: Colors.green,
