@@ -1,15 +1,16 @@
 import 'dart:ui';
 
-class AppColors{
-  AppColors ._();
+class AppColors {
+  AppColors._();
 
   // pin filed//
   static const defaultFieldBorderColor = Color(0xffCFCFCF);
   static const defaultFieldBackgroundColor = Color(0xffF4F4F4);
   static const activeFieldBackgroundColor = Color(0xffF2F8FD);
   static const activeFieldBorderColor = Color(0xff2CC672);
-  static const filledFieldBorderColor= Color(0xff2CC672);
-  static const filledFieldBackgroundColor= Color(0xffF2F8FD);
+  static const filledFieldBorderColor = Color(0xff2CC672);
+  static const filledFieldBackgroundColor = Color(0xffF2F8FD);
+
   //  ----Status Colors ----  //
   static const colorError = Color(0xffFF5858);
   static const colorSuccess = Color(0xff2CC672);
@@ -18,14 +19,17 @@ class AppColors{
   static const colorAlert = Color(0xffFECA57);
   static const flight = Color(0xff9552FF);
 
-    static const splashScreenBgColor= Color(0xffF3F3F3);
+  static const splashScreenBgColor = Color(0xffF3F3F3);
+
 // gradient color
-  static const topLeftColor= Color(0xff98CEFF);
-  static const bottomRightColor= Color(0xff2BA9F9);
+  static const topLeftColor = Color(0xff98CEFF);
+  static const bottomRightColor = Color(0xff2BA9F9);
+
   // mainHomeScreenColor F4F4F4
-  static const mainHomeScreenColor= Color(0xffF4F4F4);
+  static const mainHomeScreenColor = Color(0xffF4F4F4);
+
   //app Primary colors
-  static const colorPrimaryWhite= Color(0xffFFFFFF);
+  static const colorPrimaryWhite = Color(0xffFFFFFF);
   static const colorPrimaryShade100 = Color(0xffF2F8FD);
   static const skipBoxColor = Color(0xffE3EFFB);
   static const colorPrimaryShade200 = Color(0xffE3EFFB);
@@ -35,14 +39,13 @@ class AppColors{
   static const colorPrimaryShade600 = Color(0xff176FB2);
   static const colorPrimaryShade700 = Color(0xff145990);
   static const colorPrimaryShade800 = Color(0xff144C78);
-  static const  colorPrimaryShade900 = Color(0xff0F2942);
-  static const  colorClearButton = Color(0xff455576);
-  static const  colorLanguageBg = Color(0xffF4F4F4);
-  static const  colorSwitchProfileBg = Color(0xffF4F4F4);
-  static const  colorMostPopularBg = Color(0xffF8CF8C);
-  static const  colorTabBg = Color(0xff1F4DAE);
-  static const  colorGreen = Color(0xff24786D);
-
+  static const colorPrimaryShade900 = Color(0xff0F2942);
+  static const colorClearButton = Color(0xff455576);
+  static const colorLanguageBg = Color(0xffF4F4F4);
+  static const colorSwitchProfileBg = Color(0xffF4F4F4);
+  static const colorMostPopularBg = Color(0xffF8CF8C);
+  static const colorTabBg = Color(0xff1F4DAE);
+  static const colorGreen = Color(0xff24786D);
 
   //  ----Dark App Colors ----  //
   static const colorDarkShade50 = Color(0xffF7F7F7);
@@ -69,5 +72,4 @@ class AppColors{
   static const colorNaturalShade700 = Color(0xff444448);
   static const colorNaturalShade800 = Color(0xff252525);
   static const colorNaturalShade900 = Color(0xff0E0D12);
-
 }

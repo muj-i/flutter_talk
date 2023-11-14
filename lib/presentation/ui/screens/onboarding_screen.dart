@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_talk/presentation/ui/screens/bottom_nab_bar_screen.dart';
+import 'package:flutter_talk/presentation/ui/screens/signin_screen.dart';
+import 'package:flutter_talk/presentation/ui/screens/signup_screen.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
 import 'package:flutter_talk/presentation/ui/widgets/screen_background.dart';
 import 'package:flutter_talk/presentation/ui/widgets/select_login_signup_options.dart';
@@ -61,21 +62,21 @@ class OnboardingScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SelectLoginSignupOptions(
-                        imageLink: AssetsPath.facebookLogoSVG,
+                        imageLink: AssetsPath.facebookIconsSVG,
                         onTap: () {},
                       ),
                       const SizedBox(
                         width: 15,
                       ),
                       SelectLoginSignupOptions(
-                        imageLink: AssetsPath.googleLogoSVG,
+                        imageLink: AssetsPath.googleIconsSVG,
                         onTap: () {},
                       ),
                       const SizedBox(
                         width: 15,
                       ),
                       SelectLoginSignupOptions(
-                        imageLink: AssetsPath.appleLogoSVG,
+                        imageLink: AssetsPath.appleIconsSVG,
                         onTap: () {},
                         isChangeColor: true,
                       ),
@@ -131,7 +132,7 @@ class OnboardingScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => const BottomNavBarScreen());
+                        Get.to(() => const SignUpScreen());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
@@ -152,20 +153,25 @@ class OnboardingScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Existing account?',
                         style: TextStyle(color: Colors.white60),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
-                      Text(
-                        'Log in',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white),
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => const SignInScreen());
+                        },
+                        child: const Text(
+                          'Log in',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
