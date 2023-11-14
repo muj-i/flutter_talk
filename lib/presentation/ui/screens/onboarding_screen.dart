@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_talk/presentation/ui/screens/Bottom_nab_bar_screen.dart';
+import 'package:flutter_talk/presentation/ui/screens/bottom_nab_bar_screen.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
-import 'package:flutter_talk/presentation/ui/widget/screen_background.dart';
+import 'package:flutter_talk/presentation/ui/widgets/screen_background.dart';
 import 'package:flutter_talk/presentation/ui/widgets/select_login_signup_options.dart';
 import 'package:get/get.dart';
 

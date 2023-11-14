@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../ui/utility/app_colors.dart';
-import '../ui/utility/app_strings.dart';
+import '../utility/app_colors.dart';
+import '../utility/app_strings.dart';
 
 
 class ForgotTextButton extends StatelessWidget {
