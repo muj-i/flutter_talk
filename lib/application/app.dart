@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_talk/presentation/ui/screens/splash_screen.dart';
+import 'package:flutter_talk/presentation/ui/utility/text_form_field_theme.dart';
 import 'package:get/get.dart';
 
 import '../main.dart';
@@ -17,9 +18,12 @@ class FlutterTalk extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          fontFamily: 'CircularStd',
+        inputDecorationTheme: FTTextFormFieldTheme.lightInputDecorationTheme,
         ),
         initialBinding: StateHolderBinder(),
         home: const SplashScreen(),
+
       ),
     );
   }
