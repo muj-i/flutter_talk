@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_talk/presentation/ui/screens/signup_screen.dart';
+import 'package:get/get.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -13,7 +15,9 @@ class OnboardingScreen extends StatelessWidget {
             children: [
               const Text('Onboarding Screen'),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(SignUpScreen());
+                },
                 child: const Text('Sign In / Up'),
               ),
             ],
