@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_talk/presentation/ui/screens/bottom_nav_bar_screen.dart';
 import 'package:flutter_talk/presentation/ui/utility/colors.dart';
 import 'package:flutter_talk/presentation/ui/utility/sizes.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   Color labelColor = FTColors.authFormLabel;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -45,7 +45,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: FTSizes.spaceBtwSections),
-              Text('Sign up with Email', style: Theme.of(context).textTheme.titleLarge),
+              Text('Sign up with Email',
+                  style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: FTSizes.spaceBtwItems),
               Center(
                 child: Text(
@@ -66,14 +67,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: _nameTEController,
                       decoration: InputDecoration(
                         labelText: 'Your Name',
-                        floatingLabelStyle: TextStyle(color: labelColor, fontSize: 20),
+                        floatingLabelStyle:
+                            TextStyle(color: labelColor, fontSize: 20),
                         labelStyle: TextStyle(color: labelColor, fontSize: 20),
                         //focusColor: FTColors.authFormErrorLabel,
                         floatingLabelAlignment: FloatingLabelAlignment.start,
-                        alignLabelWithHint:true,
+                        alignLabelWithHint: true,
                       ),
-                      validator: (String? value){
-                        if(value?.isEmpty ?? true){
+                      validator: (String? value) {
+                        if (value?.isEmpty ?? true) {
                           setState(() {
                             labelColor = FTColors.authFormErrorLabel;
                           });
@@ -82,22 +84,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         }
                         return null;
                       },
-
                     ),
                     const SizedBox(height: FTSizes.spaceBtwItems),
                     TextFormField(
                       controller: _emailTEController,
                       decoration: InputDecoration(
                         labelText: 'Your Email',
-                        floatingLabelStyle: TextStyle(color: labelColor, fontSize: 20),
+                        floatingLabelStyle:
+                            TextStyle(color: labelColor, fontSize: 20),
                         labelStyle: TextStyle(color: labelColor, fontSize: 20),
                       ),
-
-                      validator: (String? value){
-                        if(value?.isEmpty ?? true){
+                      validator: (String? value) {
+                        if (value?.isEmpty ?? true) {
                           return 'This Field is Mandatory';
-                        }
-                        else if(value!.isEmail == false){
+                        } else if (value!.isEmail == false) {
                           return 'Please Enter a Valid Email';
                         }
                         return null;
@@ -109,35 +109,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        floatingLabelStyle: TextStyle(color: labelColor, fontSize: 20),
+                        floatingLabelStyle:
+                            TextStyle(color: labelColor, fontSize: 20),
                         labelStyle: TextStyle(color: labelColor, fontSize: 20),
                       ),
-                      validator: (String? value){
-                        if(value?.isEmpty ?? true){
+                      validator: (String? value) {
+                        if (value?.isEmpty ?? true) {
                           return 'Enter Your Password';
                         }
 
                         return null;
                       },
-
                     ),
                     const SizedBox(height: FTSizes.spaceBtwItems),
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
-                        floatingLabelStyle: TextStyle(color: labelColor, fontSize: 20),
+                        floatingLabelStyle:
+                            TextStyle(color: labelColor, fontSize: 20),
                         labelStyle: TextStyle(color: labelColor, fontSize: 20),
                       ),
-                      validator: (String? value){
-                        if(value?.isEmpty ?? true){
+                      validator: (String? value) {
+                        if (value?.isEmpty ?? true) {
                           return 'Enter Confirm Password';
-                        }else if(value != _passwordTEController.text){
+                        } else if (value != _passwordTEController.text) {
                           return 'Confirm password not match';
                         }
                         return null;
                       },
-
                     ),
                     const SizedBox(height: FTSizes.spaceBtwSections * 4),
 
@@ -146,10 +146,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: () {
-                          if(!_formKey.currentState!.validate()){
+                          if (!_formKey.currentState!.validate()) {
                             return;
                           }
-                          //Get.to( () => const HomeScreen());
+                          Get.to(() => const BottomNavBarScreen());
                         },
                         style: OutlinedButton.styleFrom(
                           elevation: 0,
@@ -162,7 +162,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20)),
                         ),
-                        child: const Text('Create an Account', style: TextStyle(color: FTColors.authFormSubHeading),),
+                        child: const Text(
+                          'Create an Account',
+                          style: TextStyle(color: FTColors.authFormSubHeading),
+                        ),
                       ),
                     ),
                   ],
@@ -175,5 +178,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
-
