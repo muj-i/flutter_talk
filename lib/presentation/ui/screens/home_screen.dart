@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
+import '../widget/chat_story_picker.dart';
 import '../widget/chat_tile.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -52,30 +54,37 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemCount: 10,
                     itemBuilder: (context,index){
-                      return  Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(left:7,right: 7),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: Colors.amber,
-                                  width: 3,
+                        if(index == 0){
+                          return   ChatStoryPicker(
+                            onTab: (){},
+                          );
+                        }else{
+                          return  Column(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(left:7,right: 7),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.amber,
+                                    width: 3,
+                                  ),
                                 ),
-                            ),
-                            child:  CircleAvatar(
-                              radius: 28,
-                              backgroundImage: NetworkImage(AssetsPath.profileLogo),
-                            ),
-                          ),
-                          const SizedBox(height: 5,),
-                          const Text("Monir",style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Colors.white,
-                          ),)
-                        ],
-                      );
+                                child:  CircleAvatar(
+                                  radius: 28,
+                                  backgroundImage: NetworkImage(AssetsPath.profileLogo),
+                                ),
+                              ),
+                              const SizedBox(height: 5,),
+                              const Text("Monir",style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),)
+                            ],
+                          );
+                        }
+
                       // return Column(
                       //   children: [
                       //   Container(
@@ -124,9 +133,92 @@ class HomeScreen extends StatelessWidget {
                  child: ListView.builder(
                      itemCount: 15,
                      itemBuilder: (context,index){
-                       return  ChatTile(
-                         onTap: (){},
+                       // return  Dismissible(
+                       //   key: ValueKey(index),
+                       //   background: Container(
+                       //     alignment: Alignment.centerRight,
+                       //     padding: const EdgeInsets.only(right: 20),
+                       //     color: Colors.teal[200],
+                       //     child: Row(
+                       //       mainAxisSize: MainAxisSize.min,
+                       //       children: [
+                       //         Container(
+                       //           height: 36,
+                       //           width: 36,
+                       //           decoration: const BoxDecoration(
+                       //               shape: BoxShape.circle,
+                       //               color: Colors.black,
+                       //           ),
+                       //           child: const Icon(Icons.notifications_outlined,color: Colors.white,size:22,)
+                       //         ),
+                       //         const SizedBox(width: 8,),
+                       //         Container(
+                       //             height: 36,
+                       //             width: 36,
+                       //             decoration: const BoxDecoration(
+                       //                 shape: BoxShape.circle,
+                       //                 color: Colors.redAccent
+                       //             ),
+                       //             child: const Icon(Icons.delete_forever,color: Colors.white,size:22,)
+                       //         ),
+                       //       ],
+                       //     )
+                       //   ),
+                       //   direction: DismissDirection.endToStart,
+                       //   confirmDismiss: (direction)async{
+                       //     return  await _showMyDialog(context);
+                       //   },
+                       //   onDismissed: (DismissDirection direction){
+                       //     log('Dismissed with direction $direction');
+                       //   },
+                       //   child: ChatTile(
+                       //     onTap: (){},
+                       //   ),
+                       // );
+                       return Slidable(
+                         closeOnScroll: true,
+                         key: ValueKey(index),
+                         endActionPane: ActionPane(
+                           motion: const ScrollMotion(),
+                           children: [
+                           Row(
+                             mainAxisSize: MainAxisSize.min,
+                                 children: [
+                                   const SizedBox(width: 85,),
+                                   InkWell(
+                                     onTap: (){},
+                                     child: Container(
+                                       height: 36,
+                                       width: 36,
+                                       decoration: const BoxDecoration(
+                                           shape: BoxShape.circle,
+                                           color: Colors.black,
+                                       ),
+                                       child: const Icon(Icons.notifications_outlined,color: Colors.white,size:22,)
+                                     ),
+                                   ),
+                                   const SizedBox(width: 10,),
+                                   InkWell(
+                                     onTap: (){},
+                                     child: Container(
+                                         height: 36,
+                                         width: 36,
+                                         decoration: const BoxDecoration(
+                                             shape: BoxShape.circle,
+                                             color: Colors.redAccent
+                                         ),
+                                         child: const Icon(Icons.delete_forever,color: Colors.white,size:22,)
+                                     ),
+                                   ),
+                                 ],
+                               )
+                           ],
+                         ),
+                         child: ChatTile(
+                           onTap: (){},
+                         ),
                        );
+
                      },
                  )
                ),
@@ -137,6 +229,35 @@ class HomeScreen extends StatelessWidget {
      ),
     );
   }
+
+  //  _showMyDialog(context) async {
+  //   return showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return AlertDialog(
+  //         title: const Text('Are You Sure'),
+  //         content: const Text('Do you want to delete chat history?'),
+  //         actions:[
+  //           TextButton(
+  //             child: const Text('yes'),
+  //             onPressed: () {
+  //               Navigator.of(context).pop(true);
+  //             },
+  //           ),
+  //           TextButton(
+  //             child: const Text('No'),
+  //             onPressed: () {
+  //               Navigator.of(context).pop(false);
+  //             },
+  //           )
+  //
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 }
+
+
 
 
