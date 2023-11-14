@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_talk/presentation/ui/utility/app_colors.dart';
 import 'package:flutter_talk/presentation/ui/utility/app_strings.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
-import 'package:flutter_talk/presentation/widget/text_edit_title.dart';
+import 'package:flutter_talk/presentation/ui/widgets/text_edit_title.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

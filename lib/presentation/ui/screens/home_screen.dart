@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
 
-import '../widget/chat_tile.dart';
+import '../widgets/chat_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
