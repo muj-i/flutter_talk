@@ -17,10 +17,10 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
-
       constraints: BoxConstraints(
         minWidth: 0,
-        maxWidth: MediaQuery.of(context).size.width * 0.75,
+        // maxWidth: MediaQuery.of(context).size.width * 0.75,
+        maxWidth:  MediaQuery.of(context).size.width * 0.75,
       ),
       margin: isMe
           ? const EdgeInsets.only(
@@ -49,13 +49,13 @@ class _ChatScreenState extends State<ChatScreen> {
             : const BorderRadius.only(
                 topRight: Radius.circular(25),
                 bottomRight: Radius.circular(25),
-                bottomLeft:  Radius.circular(25),
+                bottomLeft: Radius.circular(25),
               ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-       /*   Text(
+          /*   Text(
             message.time,
             style: const TextStyle(
               color: Colors.blueGrey,
@@ -63,13 +63,13 @@ class _ChatScreenState extends State<ChatScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),*/
-       /*   const SizedBox(
+          /*   const SizedBox(
             height: 8,
           ),*/
           Text(
             message.text,
-            style:  TextStyle(
-              color: isMe? Colors.white : Colors.black ,
+            style: TextStyle(
+              color: isMe ? Colors.white : Colors.black,
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
@@ -85,17 +85,19 @@ class _ChatScreenState extends State<ChatScreen> {
       children: [
         msg,
         //button for favorite icon
-        IconButton(
-          onPressed: () {
-            message.isLiked = !message.isLiked;
-            print(' is like ${message.isLiked}');
-            setState(() {});
-          },
-          icon: message.isLiked
-              ? const Icon(Icons.favorite)
-              : const Icon(Icons.favorite_border),
-          color: message.isLiked ? Colors.redAccent : Colors.blueGrey,
-        )
+        !isMe
+            ? IconButton(
+                onPressed: () {
+                  message.isLiked = !message.isLiked;
+                  print(' is like ${message.isLiked}');
+                  setState(() {});
+                },
+                icon: message.isLiked
+                    ? const Icon(Icons.favorite)
+                    : const Icon(Icons.favorite_border),
+                color: message.isLiked ? Colors.redAccent : Colors.blueGrey,
+              )
+            : Text(''),
       ],
     );
   }
@@ -183,10 +185,10 @@ class _ChatScreenState extends State<ChatScreen> {
               child: Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                /*  borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
-                  ),
+                  ),*/
                 ),
                 child: ListView.builder(
                   reverse: false,
@@ -196,7 +198,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   itemBuilder: (context, index) {
                     final Message message = messages[index];
                     final bool isMe = message.sender.id == currentUser.id;
-                    return _buildMessage(message, isMe);
+                    return Align(
+                      alignment: Alignment.centerRight,
+                      child: _buildMessage(message, isMe),
+                    );
                   },
                 ),
               ),
