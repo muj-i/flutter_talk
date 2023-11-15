@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import '../../../data/model/message_model.dart';
+import '../../../data/model/user_model.dart';
 import '../utility/assets_path.dart';
 
 class ChatTile extends StatelessWidget {
   const ChatTile({
     super.key,
-    required this.onTap,
+    required this.onTap, required this.userName,
   });
 
   final VoidCallback onTap;
-
+  final String userName;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -19,19 +21,20 @@ class ChatTile extends StatelessWidget {
             backgroundImage: NetworkImage(AssetsPath.profileLogo),
             radius: 30,
           ),
-          title: const Text(
-            "Jamalpur er Gorbo",
+          title:  Text(
+            // "Jamalpur er Gorbo",
+            userName,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               color: Color(0xff000E08),
               fontWeight: FontWeight.bold,
             ),
           ),
-          subtitle: const Text(
+          subtitle:  Text(
             "How are you",
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontSize: 12, color: Color(0xff797C7B)),
+            style: const TextStyle(fontSize: 12, color: Color(0xff797C7B)),
           ),
           trailing: Column(
             children: [
