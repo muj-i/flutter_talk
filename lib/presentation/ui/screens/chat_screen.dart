@@ -122,7 +122,7 @@ class _ChatScreenState extends State<ChatScreen> {
             controller: userMessage,
             textCapitalization:
                 TextCapitalization.sentences, // first word of sentence
-            decoration: InputDecoration.collapsed(
+            decoration: const InputDecoration.collapsed(
               //to disappear underlie form below textField, use InputDecoration.collapsed
               hintText: 'Send a message...',
             ),
