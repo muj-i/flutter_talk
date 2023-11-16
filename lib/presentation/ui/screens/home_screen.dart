@@ -3,12 +3,18 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
 import 'package:flutter_talk/presentation/ui/widgets/chat_story_picker.dart';
 import 'package:flutter_talk/presentation/ui/widgets/chat_tile.dart';
+import 'package:get/get.dart';
+import '../../../data/model/message_model.dart';
+import 'chat_screen.dart';
+
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.black,
      body:SafeArea(
@@ -145,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                       top: 20,
                     ),
                     child: ListView.builder(
-                      itemCount: 15,
+                      itemCount: userName.length,
                       itemBuilder: (context, index) {
                         // return  Dismissible(
                         //   key: ValueKey(index),
@@ -238,7 +244,11 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                           child: ChatTile(
-                            onTap: () {},
+                           userName: userName[index].name,
+                            onTap: () {
+                              Get.to(()=> ChatScreen(userName: userName[index].name,));
+                            },
+
                           ),
                         );
                       },
