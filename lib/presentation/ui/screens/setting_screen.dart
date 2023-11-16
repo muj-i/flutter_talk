@@ -51,53 +51,53 @@ class _SettingScreenState extends State<SettingScreen> {
                       topLeft: Radius.circular(40),
                       topRight: Radius.circular(40),
                     )),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text("-----"),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
-                      leading: CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(AssetsPath.profileLogo),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 10,
                       ),
-                      title: const Text(
-                        "Moniruzzaman",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff000E08)),
+                      const Text("-----"),
+                      const SizedBox(
+                        height: 10,
                       ),
-                      subtitle: const Text(
-                        "Never give up 💪",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
+                      ListTile(
+                        leading: CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage(AssetsPath.profileLogo),
+                        ),
+                        title: const Text(
+                          "Moniruzzaman",
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff000E08)),
+                        ),
+                        subtitle: const Text(
+                          "Never give up 💪",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                          ),
+                        ),
+                        trailing: const Icon(
+                          Icons.document_scanner_outlined,
+                          size: 30,
+                          color: Color(0xff24786D),
                         ),
                       ),
-                      trailing: const Icon(
-                        Icons.document_scanner_outlined,
-                        size: 30,
-                        color: Color(0xff24786D),
+                      const Divider(
+                        height: 20,
+                        color: Color(0xffF5F6F6),
                       ),
-                    ),
-                    const Divider(
-                      height: 20,
-                      color: Color(0xffF5F6F6),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                     const Expanded(
-                      child: Column(
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const Column(
                         children: [
                           SettingOptionTile(
-                            icon:Icons.key,
+                            icon: Icons.key,
                             title: "Account",
                             subtitle: "Privacy,Security,Change number",
                           ),
@@ -126,9 +126,9 @@ class _SettingScreenState extends State<SettingScreen> {
                             title: "Invite a friend",
                           ),
                         ],
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -141,12 +141,15 @@ class _SettingScreenState extends State<SettingScreen> {
 
 class SettingOptionTile extends StatelessWidget {
   const SettingOptionTile({
-    super.key, required this.icon, required this.title,  this.subtitle,
+    super.key,
+    required this.icon,
+    required this.title,
+    this.subtitle,
   });
 
   final IconData icon;
   final String title;
-  final String ? subtitle;
+  final String? subtitle;
 
   @override
   Widget build(BuildContext context) {
@@ -155,25 +158,26 @@ class SettingOptionTile extends StatelessWidget {
           radius: 22,
           backgroundColor: const Color(0xffF2F8F7),
           child: Icon(
-            icon, size: 24, color: const Color(0xff797C7B),
+            icon,
+            size: 24,
+            color: const Color(0xff797C7B),
           )),
       title: Text(
         title,
-        style:  const TextStyle(
+        style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
             color: Color(0xff000E08)),
       ),
-      subtitle: Visibility(
-        visible: subtitle != null,
-        child: Text(
-          subtitle.toString(),
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 12,
-          ),
-        ),
-      ),
+      subtitle: subtitle != null
+          ? Text(
+              subtitle.toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 12,
+              ),
+            )
+          : null,
     );
   }
 }
