@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_talk/presentation/ui/screens/setting_screen.dart';
 import 'package:get/get.dart';
 import '../../state_holders/bottom_nab_controller.dart';
 import 'home_screen.dart';
@@ -15,7 +16,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    const SettingScreen(),
   ];
 
   @override
