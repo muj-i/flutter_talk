@@ -39,6 +39,8 @@ dependencies:
   get: ^4.6.6
   flutter_screenutil: ^5.9.0
   flutter_slidable: ^3.0.1
+  firebase_core: ^2.22.0
+  firebase_auth: ^4.14.0
 
 dev_dependencies:
   flutter_test:
