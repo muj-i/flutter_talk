@@ -1,6 +1,4 @@
 import 'dart:developer';
-import 'dart:js_interop';
-
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,13 +9,13 @@ String _message='';
   bool get logInProgress => _logInProgress;
   String get message=> _message;
 
-  Future<void> getlogin(String email,String password )async{
+  Future<void> getLogin(String email,String password )async{
     _logInProgress=true;
     update();
     try{
       _logInProgress=false;
       update();
-      final credentital=await FirebaseAuth.instance.signInWithEmailAndPassword(
+       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email,
           password: password
 

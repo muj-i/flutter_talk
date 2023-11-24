@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_talk/presentation/ui/screens/bottom_nav_bar_screen.dart';
+import 'package:flutter_talk/presentation/ui/screens/home_screen.dart';
 import 'package:flutter_talk/presentation/ui/utility/app_colors.dart';
 import 'package:flutter_talk/presentation/ui/utility/app_strings.dart';
 import 'package:flutter_talk/presentation/ui/utility/assets_path.dart';
@@ -95,6 +99,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0, right: 8),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         width: 132.w,
@@ -105,9 +110,9 @@ class _SignInScreenState extends State<SignInScreen> {
                               width: 1),
                         ),
                       ),
-                      SizedBox(
-                        width: 15.w,
-                      ),
+                      // SizedBox(
+                      //   width: 15.w,
+                      // ),
                       Text(
                         'OR',
                         textAlign: TextAlign.center,
@@ -214,36 +219,29 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 40,
                   width: double.infinity,
-                  child: GetBuilder<SignInController>(
-                    builder: (controller) {
-                      if (controller.logInProgress) {
-                        return const CircularProgressIndicator();
-                      }
-                      return ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            controller.getlogin(
-                                  _emailTEController.text
-                                _passwordTEController.text){
+                  child:  ElevatedButton(
+                          onPressed: () {
 
-    }
+                            getLogin(_emailTEController.text,_passwordTEController.text);
+
+                            print(_emailTEController.text);
+                            print(_passwordTEController.text);
+
+                          },
 
 
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.colorGreen),
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.colorPrimaryWhite),
 
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.colorGreen),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.colorPrimaryWhite),
-                        ),
-                      )
-                      ,
-                    },
+                          )
+                      ),
 
-                  ),
                 ),
                 SizedBox(
                   height: 16.h,
@@ -264,5 +262,23 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> getLogin(String email,String password )async{
+
+
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password
+
+      );
+
+    }
+
+    on FirebaseAuthException   catch(e){
+
+      log(e.toString());
+    }
   }
 }
