@@ -239,7 +239,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               fontWeight: FontWeight.w600,
                               color: AppColors.colorPrimaryWhite),
                         ),
-                      )
+                      , child: 'null',)
                       ,
                     },
 
