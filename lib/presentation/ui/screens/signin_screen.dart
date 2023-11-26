@@ -211,39 +211,39 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   height: 90.h,
                 ),
-                SizedBox(
-                  height: 40,
-                  width: double.infinity,
-                  child: GetBuilder<SignInController>(
-                    builder: (controller) {
-                      if (controller.logInProgress) {
-                        return const CircularProgressIndicator();
-                      }
-                      return ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            controller.getlogin(
-                                  _emailTEController.text
-                                _passwordTEController.text){
-
-    }
-
-
-
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.colorGreen),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.colorPrimaryWhite),
-                        ),
-                      , child: 'null',)
-                      ,
-                    },
-
-                  ),
+    //             SizedBox(
+    //               height: 40,
+    //               width: double.infinity,
+    //               child: GetBuilder<SignInController>(
+    //                 builder: (controller) {
+    //                   if (controller.logInProgress) {
+    //                     return const CircularProgressIndicator();
+    //                   }
+    //                   return ElevatedButton(
+    //                     onPressed: () {
+    //                       if (_formKey.currentState!.validate()) {
+    //                         controller.getlogin(
+    //                               _emailTEController.text
+    //                             _passwordTEController.text){
+    //
+    // }
+    //
+    //
+    //
+    //                     style: ElevatedButton.styleFrom(
+    //                         backgroundColor: AppColors.colorGreen),
+    //                     child: const Text(
+    //                       'Login',
+    //                       style: TextStyle(
+    //                           fontSize: 14,
+    //                           fontWeight: FontWeight.w600,
+    //                           color: AppColors.colorPrimaryWhite),
+    //                     ),
+    //                   , child: 'null',)
+    //                   ,
+    //                 },
+    //
+    //               ),
                 ),
                 SizedBox(
                   height: 16.h,
